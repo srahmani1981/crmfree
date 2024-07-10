@@ -15,7 +15,13 @@ exports.addPerson = (req, res) => {
     if (req.method === 'GET') {
         res.render('addPerson');
     } else if (req.method === 'POST') {
-        const person = { id: uuidv4(), name: req.body.name, age: req.body.age, email: req.body.email };
+        const person = {
+            id: uuidv4(),
+            name: req.body.name,
+            age: req.body.age,
+            email: req.body.email,
+            addedBy: req.session.user.username
+        };
         PersonModel.add(person, () => {
             res.redirect('/list-people');
         });
@@ -29,7 +35,12 @@ exports.editPerson = (req, res) => {
             res.render('editPerson', { person });
         });
     } else if (req.method === 'POST') {
-        const updatedPerson = { name: req.body.name, age: req.body.age, email: req.body.email };
+        const updatedPerson = {
+            name: req.body.name,
+            age: req.body.age,
+            email: req.body.email,
+            editedBy: req.session.user.username
+        };
         PersonModel.update(id, updatedPerson, () => {
             res.redirect('/list-people');
         });
