@@ -20,6 +20,11 @@
                 </li>
             <% }); %>
         </ul>
+        <div class="pagination">
+            <% for(let i = 1; i <= totalPages; i++) { %>
+                <a href="?page=<%= i %>" class="<%= currentPage === i ? 'active' : '' %>"><%= i %></a>
+            <% } %>
+        </div>
         <a href="/">Back to Home</a>
     </div>
 </body>

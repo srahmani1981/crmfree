@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search People</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script defer src="/script.js"></script>
+</head>
+<body>
+    <div class="spinner-container" id="spinner-container">
+        <div class="spinner"></div>
+    </div>
+    <div class="container">
+        <h1>Search People</h1>
+        <form action="/search-people" method="GET">
+            <input type="text" name="q" placeholder="Search by name">
+            <button type="submit">Search</button>
+        </form>
+        <% if (typeof people !== 'undefined' && people.length > 0) { %>
+            <ul>
+                <% people.forEach(person => { %>
+                    <li>
+                        <span><%= person.name %></span>
+                        <div>
+                            <a href="/view-person/<%= person.id %>">View</a>
+                            <a href="/edit-person/<%= person.id %>">Edit</a>
+                            <a href="/delete-person/<%= person.id %>">Delete</a>
+                        </div>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else if (typeof people !== 'undefined') { %>
+            <p>No results found</p>
+        <% } %>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
+

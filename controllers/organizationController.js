@@ -2,8 +2,14 @@ const OrganizationModel = require('../models/organizationModel');
 const { v4: uuidv4 } = require('uuid');
 
 exports.listOrganizations = (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = 10;
+    const offset = (page - 1) * limit;
+
     OrganizationModel.getAll((organizations) => {
-        res.render('organizations/listOrganizations', { organizations });
+        const totalPages = Math.ceil(organizations.length / limit);
+        const paginatedOrganizations = organizations.slice(offset, offset + limit);
+        res.render('organizations/listOrganizations', { organizations: paginatedOrganizations, currentPage: page, totalPages });
     });
 };
 
@@ -58,10 +64,16 @@ exports.viewOrganization = (req, res) => {
         res.render('organizations/viewOrganization', { organization });
     });
 };
+
+exports.searchOrganizationsPage = (req, res) => {
+    res.render('searchOrganizations');
+};
+
 exports.searchOrganizations = (req, res) => {
-    const query = req.query.q;
+    const query = req.query.q || '';
     OrganizationModel.getAll((organizations) => {
         const filteredOrganizations = organizations.filter(organization => organization.name.toLowerCase().includes(query.toLowerCase()));
-        res.render('organizations/listOrganizations', { organizations: filteredOrganizations });
+        res.render('searchOrganizations', { organizations: filteredOrganizations });
     });
 };
+

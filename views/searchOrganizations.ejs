@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Organizations</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script defer src="/script.js"></script>
+</head>
+<body>
+    <div class="spinner-container" id="spinner-container">
+        <div class="spinner"></div>
+    </div>
+    <div class="container">
+        <h1>Search Organizations</h1>
+        <form action="/search-organizations" method="GET">
+            <input type="text" name="q" placeholder="Search by name">
+            <button type="submit">Search</button>
+        </form>
+        <% if (typeof organizations !== 'undefined' && organizations.length > 0) { %>
+            <ul>
+                <% organizations.forEach(organization => { %>
+                    <li>
+                        <span><%= organization.name %></span>
+                        <div>
+                            <a href="/view-organization/<%= organization.id %>">View</a>
+                            <a href="/edit-organization/<%= organization.id %>">Edit</a>
+                            <a href="/delete-organization/<%= organization.id %>">Delete</a>
+                        </div>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else if (typeof organizations !== 'undefined') { %>
+            <p>No results found</p>
+        <% } %>
+        <a href="/">Back to Home</a>
+    </div>
+</body>
+</html>
+
