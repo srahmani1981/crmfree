@@ -9,6 +9,10 @@
     <div class="container">
         <h1>Organization Details</h1>
         <p><strong>Name:</strong> <%= organization.name %></p>
+        <p><strong>Added By:</strong> <%= organization.addedBy %></p>
+        <% if (organization.editedBy) { %>
+            <p><strong>Edited By:</strong> <%= organization.editedBy %></p>
+        <% } %>
         <a href="/list-organizations">Back to List</a>
     </div>
 </body>

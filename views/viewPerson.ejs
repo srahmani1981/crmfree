@@ -11,6 +11,10 @@
         <p><strong>Name:</strong> <%= person.name %></p>
         <p><strong>Age:</strong> <%= person.age %></p>
         <p><strong>Email:</strong> <%= person.email %></p>
+        <p><strong>Added By:</strong> <%= person.addedBy %></p>
+        <% if (person.editedBy) { %>
+            <p><strong>Edited By:</strong> <%= person.editedBy %></p>
+        <% } %>
         <a href="/list-people">Back to List</a>
     </div>
 </body>
