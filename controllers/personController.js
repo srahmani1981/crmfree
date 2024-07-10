@@ -1,4 +1,5 @@
 const PersonModel = require('../models/personModel');
+const TransactionModel = require('../models/transactionModel');
 const { v4: uuidv4 } = require('uuid');
 
 exports.index = (req, res) => {
@@ -6,8 +7,14 @@ exports.index = (req, res) => {
 };
 
 exports.listPeople = (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = 10;
+    const offset = (page - 1) * limit;
+
     PersonModel.getAll((people) => {
-        res.render('listPeople', { people });
+        const totalPages = Math.ceil(people.length / limit);
+        const paginatedPeople = people.slice(offset, offset + limit);
+        res.render('listPeople', { people: paginatedPeople, currentPage: page, totalPages });
     });
 };
 
@@ -57,13 +64,21 @@ exports.deletePerson = (req, res) => {
 exports.viewPerson = (req, res) => {
     const id = req.params.id;
     PersonModel.getById(id, (person) => {
-        res.render('viewPerson', { person });
+        TransactionModel.getByPersonId(id, (transactions) => {
+            res.render('viewPerson', { person, transactions });
+        });
     });
 };
+
+exports.searchPeoplePage = (req, res) => {
+    res.render('searchPeople');
+};
+
 exports.searchPeople = (req, res) => {
-    const query = req.query.q;
+    const query = req.query.q || '';
     PersonModel.getAll((people) => {
         const filteredPeople = people.filter(person => person.name.toLowerCase().includes(query.toLowerCase()));
-        res.render('listPeople', { people: filteredPeople });
+        res.render('searchPeople', { people: filteredPeople });
     });
 };
+

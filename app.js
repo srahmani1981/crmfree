@@ -45,6 +45,7 @@ app.post('/edit-person/:id', authMiddleware, personController.editPerson);
 app.get('/delete-person/:id', authMiddleware, personController.deletePerson);
 app.get('/view-person/:id', authMiddleware, personController.viewPerson);
 app.get('/search-people', authMiddleware, personController.searchPeople);
+app.get('/search-people-results', authMiddleware, personController.searchPeople); // Route for search people results
 
 app.get('/list-organizations', authMiddleware, organizationController.listOrganizations);
 app.get('/add-organization', authMiddleware, organizationController.addOrganization);
@@ -55,6 +56,7 @@ app.get('/delete-organization/:id', authMiddleware, organizationController.delet
 app.post('/delete-organization/:id', authMiddleware, organizationController.deleteOrganization);
 app.get('/view-organization/:id', authMiddleware, organizationController.viewOrganization);
 app.get('/search-organizations', authMiddleware, organizationController.searchOrganizations);
+app.get('/search-organizations-results', authMiddleware, organizationController.searchOrganizations); // Route for search organizations results
 
 const PORT = process.env.PORT || 3011;
 app.listen(PORT, () => {

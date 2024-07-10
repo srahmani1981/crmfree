@@ -20,7 +20,8 @@
     "name": "Green Energy Inc"
   },
   {
-    "id": "e28a8fc3-6cff-4407-8de5-7c807b95daf7",
-    "name": "Clean Energy LTD"
+    "name": "Clean Energy Ltd ",
+    "editedBy": "admin",
+    "id": "e28a8fc3-6cff-4407-8de5-7c807b95daf7"
   }
 ]
