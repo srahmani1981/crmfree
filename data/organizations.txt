@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "name": "Tech Corp"
+  },
+  {
+    "id": "2",
+    "name": "Innovate LLC"
+  },
+  {
+    "id": "3",
+    "name": "Health Solutions"
+  },
+  {
+    "id": "4",
+    "name": "EduTech"
+  },
+  {
+    "id": "5",
+    "name": "Green Energy Inc"
+  },
+  {
+    "id": "e28a8fc3-6cff-4407-8de5-7c807b95daf7",
+    "name": "Clean Energy LTD"
+  }
+]

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Organization</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Organization</h1>
+        <form action="/edit-organization/<%= organization.id %>" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= organization.name %>">
+            <button type="submit">Save</button>
+        </form>
+        <a href="/list-organizations">Back to List</a>
+    </div>
+</body>
+</html>
+
