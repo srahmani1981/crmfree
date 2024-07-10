@@ -44,6 +44,7 @@ app.get('/edit-person/:id', authMiddleware, personController.editPerson);
 app.post('/edit-person/:id', authMiddleware, personController.editPerson);
 app.get('/delete-person/:id', authMiddleware, personController.deletePerson);
 app.get('/view-person/:id', authMiddleware, personController.viewPerson);
+app.get('/search-people', authMiddleware, personController.searchPeople);
 
 app.get('/list-organizations', authMiddleware, organizationController.listOrganizations);
 app.get('/add-organization', authMiddleware, organizationController.addOrganization);
@@ -53,6 +54,7 @@ app.post('/edit-organization/:id', authMiddleware, organizationController.editOr
 app.get('/delete-organization/:id', authMiddleware, organizationController.deleteOrganization);
 app.post('/delete-organization/:id', authMiddleware, organizationController.deleteOrganization);
 app.get('/view-organization/:id', authMiddleware, organizationController.viewOrganization);
+app.get('/search-organizations', authMiddleware, organizationController.searchOrganizations);
 
 const PORT = process.env.PORT || 3011;
 app.listen(PORT, () => {

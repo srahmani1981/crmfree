@@ -60,4 +60,10 @@ exports.viewPerson = (req, res) => {
         res.render('viewPerson', { person });
     });
 };
-
+exports.searchPeople = (req, res) => {
+    const query = req.query.q;
+    PersonModel.getAll((people) => {
+        const filteredPeople = people.filter(person => person.name.toLowerCase().includes(query.toLowerCase()));
+        res.render('listPeople', { people: filteredPeople });
+    });
+};

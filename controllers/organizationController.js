@@ -58,4 +58,10 @@ exports.viewOrganization = (req, res) => {
         res.render('organizations/viewOrganization', { organization });
     });
 };
-
+exports.searchOrganizations = (req, res) => {
+    const query = req.query.q;
+    OrganizationModel.getAll((organizations) => {
+        const filteredOrganizations = organizations.filter(organization => organization.name.toLowerCase().includes(query.toLowerCase()));
+        res.render('organizations/listOrganizations', { organizations: filteredOrganizations });
+    });
+};
