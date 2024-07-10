@@ -17,6 +17,12 @@ app.use(session({
     saveUninitialized: true
 }));
 
+// Middleware to pass session to views
+app.use((req, res, next) => {
+    res.locals.session = req.session;
+    next();
+});
+
 // Middleware to protect routes
 const authMiddleware = (req, res, next) => {
     if (req.session.user) {
