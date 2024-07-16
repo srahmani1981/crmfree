@@ -56,10 +56,17 @@ exports.editPerson = (req, res) => {
 
 exports.deletePerson = (req, res) => {
     const id = req.params.id;
-    PersonModel.delete(id, () => {
-        res.redirect('/list-people');
-    });
+    if (req.method === 'GET') {
+        PersonModel.getById(id, (person) => {
+            res.render('deletePerson', { person });
+        });
+    } else if (req.method === 'POST') {
+        PersonModel.delete(id, () => {
+            res.redirect('/list-people');
+        });
+    }
 };
+
 
 exports.viewPerson = (req, res) => {
     const id = req.params.id;

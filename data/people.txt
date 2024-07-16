@@ -67,13 +67,5 @@
     "age": "43",
     "email": "shawn@tedu.com",
     "addedBy": "admin"
-  },
-  {
-    "name": "HaHa Mcgee",
-    "age": "79",
-    "email": "mcgee@sneez.com",
-    "addedBy": "admin",
-    "editedBy": "ABD-Staff",
-    "id": "d2a5727d-caa2-4fe0-8096-7b080c49dc8c"
   }
 ]
