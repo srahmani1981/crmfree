@@ -8,7 +8,8 @@
     { "id": "2", "personId": "5", "amount": 200, "date": "2024-02-01" },
     { "id": "3", "personId": "6", "amount": 150, "date": "2024-03-01" },
     { "id": "4", "personId": "7", "amount": 250, "date": "2024-04-01" },
-    { "id": "5", "personId": "11", "amount": 50, "date": "2024-05-01" }
+    { "id": "5", "personId": "11", "amount": 50, "date": "2024-05-01" },
+    { "id": "d2a5727d-caa2-4fe0-8096-7b080c49dc8c", "amount": 5000, "date": "2024-07-16"}
 ]
 
 
