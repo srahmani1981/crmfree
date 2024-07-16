@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Person</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Person</h1>
+        <p>Are you sure you want to delete the person "<%= person.name %>"?</p>
+        <form action="/delete-person/<%= person.id %>" method="POST">
+            <button type="submit">Yes, Delete</button>
+            <a href="/list-people">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
+

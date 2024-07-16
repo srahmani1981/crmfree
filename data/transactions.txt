@@ -3,13 +3,6 @@
     { "id": "2", "personId": "1", "amount": 200, "date": "2024-02-01" },
     { "id": "3", "personId": "2", "amount": 150, "date": "2024-03-01" },
     { "id": "4", "personId": "3", "amount": 250, "date": "2024-04-01" },
-    { "id": "5", "personId": "2", "amount": 50, "date": "2024-05-01" },
-    { "id": "1", "personId": "4", "amount": 100, "date": "2024-01-01" },
-    { "id": "2", "personId": "5", "amount": 200, "date": "2024-02-01" },
-    { "id": "3", "personId": "6", "amount": 150, "date": "2024-03-01" },
-    { "id": "4", "personId": "7", "amount": 250, "date": "2024-04-01" },
-    { "id": "5", "personId": "11", "amount": 50, "date": "2024-05-01" },
-    { "id": "d2a5727d-caa2-4fe0-8096-7b080c49dc8c", "amount": 5000, "date": "2024-07-16"}
+    { "id": "5", "personId": "d0277d31-6ffe-4399-a20f-94f2f6afa825", "amount": 5000, "date": "2024-07-16" }
 ]
-
 

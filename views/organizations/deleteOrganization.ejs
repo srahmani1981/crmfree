@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Organization</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Organization</h1>
+        <p>Are you sure you want to delete the organization "<%= organization.name %>"?</p>
+        <form action="/delete-organization/<%= organization.id %>" method="POST">
+            <button type="submit">Yes, Delete</button>
+            <a href="/list-organizations">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
+
