@@ -8,14 +8,25 @@
 <body>
     <div class="container">
         <h1>Login</h1>
-        <% if (typeof error !== 'undefined') { %>
+        <% if (error) { %>
             <p style="color: red;"><%= error %></p>
         <% } %>
         <form action="/login" method="POST">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username">
+            <input type="text" id="username" name="username" required>
+            
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password">
+            <input type="password" id="password" name="password" required>
+            
+            <label for="client">Client:</label>
+            <select id="client" name="client" required>
+                <option value="">Select a client</option>
+                <option value="Barack Obama Foundation">Barack Obama Foundation</option>
+                <option value="The Hill Valley Preservation Society">The Hill Valley Preservation Society</option>
+                <option value="Client3">Client 3</option>
+                <!-- Add more clients as needed -->
+            </select>
+            
             <button type="submit">Login</button>
         </form>
     </div>

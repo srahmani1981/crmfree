@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search People Results</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Search People Results</h1>
+        <ul>
+            <% people.forEach(person => { %>
+                <li>
+                    <span><%= person.name %></span>
+                    <div>
+                        <a href="/view-person/<%= person.id %>">View</a>
+                    </div>
+                </li>
+            <% }); %>
+        </ul>
+        <a href="/search-people">Back to Search</a>
+    </div>
+</body>
+</html>
+
