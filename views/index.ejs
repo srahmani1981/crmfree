@@ -1,35 +1,76 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
     <link rel="stylesheet" href="/styles.css">
-    <script defer src="/script.js"></script>
 </head>
 <body>
-    <div class="spinner-container" id="spinner-container">
-        <div class="spinner"></div>
-    </div>
     <div class="container">
-        <h1>Welcome to the Customer Relationship Management App</h1>
+        <h1>The Index.</h1>
         <div class="logged-in-info">
             <% if (session.user) { %>
                 <p>Logged in as: <%= session.user.username %></p>
+                <p>Client: <%= session.user.client %></p>
+                <p>Role: <%= session.user.role %></p>
                 <a href="/logout">Logout</a>
             <% } else { %>
                 <a href="/login">Login</a>
             <% } %>
         </div>
         <div class="navbar">
-            <a href="/list-people">List People</a>
-            <a href="/add-person">Add Person</a>
-            <a href="/search-people">Search People</a>
+            <a href="/list-people">List Donors</a>
+            <% if (session.user && session.user.role === 'admin') { %>
+                <a href="/add-person">Add Donor</a>
+            <% } %>
+            <a href="/search-people">Search Donors</a>
             <a href="/list-organizations">List Organizations</a>
-            <a href="/add-organization">Add Organization</a>
+            <% if (session.user && session.user.role === 'admin') { %>
+                <a href="/add-organization">Add Organization</a>
+            <% } %>
             <a href="/search-organizations">Search Organizations</a>
         </div>
     </div>
+
+    <div class="chart-container">
+        <h2>Monthly Donations</h2>
+        <div class="chart" id="donationsChart"></div>
+    </div>
+
+    <script>
+        const labels = <%= JSON.stringify(labels) %>;
+        const data = <%= JSON.stringify(data) %>;
+
+        console.log('Labels:', labels);
+        console.log('Data:', data);
+
+        const chartContainer = document.getElementById('donationsChart');
+
+        // Get the maximum value for the y-axis
+        const maxValue = Math.max(...data);
+
+        // Create bars for each data point
+        data.forEach((value, index) => {
+            const barContainer = document.createElement('div');
+            barContainer.classList.add('bar-container');
+
+            const bar = document.createElement('div');
+            bar.classList.add('bar');
+            bar.style.height = `${(value / maxValue) * 100}%`;
+
+            const label = document.createElement('div');
+            label.classList.add('label');
+            label.textContent = labels[index];
+
+            const valueLabel = document.createElement('div');
+            valueLabel.classList.add('value-label');
+            valueLabel.textContent = value;
+
+            barContainer.appendChild(valueLabel);
+            barContainer.appendChild(bar);
+            barContainer.appendChild(label);
+            chartContainer.appendChild(barContainer);
+        });
+    </script>
 </body>
 </html>

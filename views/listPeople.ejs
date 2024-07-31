@@ -7,15 +7,17 @@
 </head>
 <body>
     <div class="container">
-        <h1>People List</h1>
+        <h1>Donor List</h1>
         <ul>
             <% people.forEach(person => { %>
                 <li>
                     <span><%= person.name %></span>
                     <div>
                         <a href="/view-person/<%= person.id %>">View</a>
+			<% if (session.user && session.user.role === 'admin') { %>
                         <a href="/edit-person/<%= person.id %>">Edit</a>
                         <a href="/delete-person/<%= person.id %>">Delete</a>
+			 <% } %>
                     </div>
                 </li>
             <% }); %>
@@ -29,4 +31,4 @@
     </div>
 </body>
 </html>
-
+i

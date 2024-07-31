@@ -11,7 +11,7 @@
         <div class="spinner"></div>
     </div>
     <div class="container">
-        <h1>Search People</h1>
+        <h1>Search Donors</h1>
         <form action="/search-people" method="GET">
             <input type="text" name="q" placeholder="Search by name">
             <button type="submit">Search</button>
@@ -23,8 +23,10 @@
                         <span><%= person.name %></span>
                         <div>
                             <a href="/view-person/<%= person.id %>">View</a>
+			    <% if (session.user && session.user.role === 'admin') { %>
                             <a href="/edit-person/<%= person.id %>">Edit</a>
                             <a href="/delete-person/<%= person.id %>">Delete</a>
+			       <% } %>
                         </div>
                     </li>
                 <% }); %>

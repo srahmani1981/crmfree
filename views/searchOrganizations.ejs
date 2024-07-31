@@ -23,8 +23,10 @@
                         <span><%= organization.name %></span>
                         <div>
                             <a href="/view-organization/<%= organization.id %>">View</a>
+			     <% if (session.user && session.user.role === 'admin') { %>
                             <a href="/edit-organization/<%= organization.id %>">Edit</a>
                             <a href="/delete-organization/<%= organization.id %>">Delete</a>
+			      <% } %>
                         </div>
                     </li>
                 <% }); %>
