@@ -3,7 +3,31 @@ const TransactionModel = require('../models/transactionModel');
 const { v4: uuidv4 } = require('uuid');
 
 exports.index = (req, res) => {
-    res.render('index');
+    TransactionModel.getAll((transactions) => {
+        const monthlyDonations = {};
+
+        transactions.forEach(transaction => {
+            const date = new Date(transaction.date);
+            const month = date.getMonth() + 1; // getMonth() returns 0-11, adding 1 for 1-12
+            const year = date.getFullYear();
+            const monthYear = `${year}-${month.toString().padStart(2, '0')}`;
+
+            if (!monthlyDonations[monthYear]) {
+                monthlyDonations[monthYear] = 0;
+            }
+            monthlyDonations[monthYear] += transaction.amount;
+        });
+
+        const labels = Object.keys(monthlyDonations).sort();
+        const data = labels.map(label => monthlyDonations[label]);
+
+        console.log('Transactions:', transactions);
+        console.log('Monthly Donations:', monthlyDonations);
+        console.log('Labels:', labels);
+        console.log('Data:', data);
+
+        res.render('index', { labels, data });
+    });
 };
 
 exports.listPeople = (req, res) => {
@@ -67,7 +91,6 @@ exports.deletePerson = (req, res) => {
     }
 };
 
-
 exports.viewPerson = (req, res) => {
     const id = req.params.id;
     PersonModel.getById(id, (person) => {
@@ -85,7 +108,6 @@ exports.searchPeople = (req, res) => {
     const query = req.query.q || '';
     PersonModel.getAll((people) => {
         const filteredPeople = people.filter(person => person.name.toLowerCase().includes(query.toLowerCase()));
-        res.render('searchPeople', { people: filteredPeople });
+        res.render('searchPeopleResults', { people: filteredPeople });
     });
 };
-

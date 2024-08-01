@@ -1,65 +1,46 @@
 const fs = require('fs');
 const path = require('path');
-const filePath = path.join(__dirname, '../data/transactions.txt');
+const transactionFilePath = path.join(__dirname, '../data/transactions.txt');
 
-class TransactionModel {
-    static getAll(callback) {
-        fs.readFile(filePath, 'utf8', (err, data) => {
-            if (err) throw err;
+exports.getAll = (callback) => {
+    fs.readFile(transactionFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading transactions file:', err);
+            callback([]);
+        } else {
             const transactions = data ? JSON.parse(data) : [];
             callback(transactions);
-        });
-    }
+        }
+    });
+};
 
-    static getByPersonId(personId, callback) {
-        this.getAll((transactions) => {
-            const personTransactions = transactions.filter(t => t.personId === personId);
+exports.getByPersonId = (personId, callback) => {
+    fs.readFile(transactionFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading transactions file:', err);
+            callback([]);
+        } else {
+            const transactions = data ? JSON.parse(data) : [];
+            const personTransactions = transactions.filter(transaction => transaction.personId === personId);
             callback(personTransactions);
-        });
-    }
+        }
+    });
+};
 
-    static add(transaction, callback) {
-        this.getAll((transactions) => {
+exports.add = (transaction, callback) => {
+    fs.readFile(transactionFilePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading transactions file:', err);
+            callback();
+        } else {
+            const transactions = data ? JSON.parse(data) : [];
             transactions.push(transaction);
-            fs.writeFile(filePath, JSON.stringify(transactions, null, 2), (err) => {
-                if (err) throw err;
+            fs.writeFile(transactionFilePath, JSON.stringify(transactions, null, 2), (err) => {
+                if (err) {
+                    console.error('Error writing transactions file:', err);
+                }
                 callback();
             });
-        });
-    }
-
-    static getById(id, callback) {
-        this.getAll((transactions) => {
-            const transaction = transactions.find(t => t.id === id);
-            callback(transaction);
-        });
-    }
-
-    static update(id, updatedTransaction, callback) {
-        this.getAll((transactions) => {
-            const index = transactions.findIndex(t => t.id === id);
-            if (index !== -1) {
-                transactions[index] = { ...updatedTransaction, id };
-                fs.writeFile(filePath, JSON.stringify(transactions, null, 2), (err) => {
-                    if (err) throw err;
-                    callback();
-                });
-            } else {
-                callback(new Error('Transaction not found'));
-            }
-        });
-    }
-
-    static delete(id, callback) {
-        this.getAll((transactions) => {
-            const updatedTransactions = transactions.filter(t => t.id !== id);
-            fs.writeFile(filePath, JSON.stringify(updatedTransactions, null, 2), (err) => {
-                if (err) throw err;
-                callback();
-            });
-        });
-    }
-}
-
-module.exports = TransactionModel;
-
+        }
+    });
+};
