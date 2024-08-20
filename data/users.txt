@@ -1,7 +1,8 @@
 [
-    { "username": "admin", "password": "password123" },
-    { "username": "user1", "password": "password456" },
-    { "username": "GFrey", "password": "test123"},
-    { "username": "ABD-Staff", "password": "pw123"}
+    { "username": "admin", "password": "password123", "client": "The Hill Valley Preservation Society" ,"role": "admin" },
+    { "username": "user1", "password": "password456", "client": "Barack Obama Foundation", "role": "user" },
+    { "username": "GFrey", "password": "test123", "client": "Barack Obama Foundation","role": "user" },
+    { "username": "shawn.rahmani","password": "abc123","client": "Barack Obama Foundation", "role": "admin"},
+    { "username": "ABD-Staff", "password": "pw123","client": "Barack Obama Foundation", "role": "admin"}
 ]
 

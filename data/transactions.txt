@@ -3,6 +3,8 @@
     { "id": "2", "personId": "1", "amount": 200, "date": "2024-02-01" },
     { "id": "3", "personId": "2", "amount": 150, "date": "2024-03-01" },
     { "id": "4", "personId": "3", "amount": 250, "date": "2024-04-01" },
-    { "id": "5", "personId": "d0277d31-6ffe-4399-a20f-94f2f6afa825", "amount": 5000, "date": "2024-07-16" }
+    { "id": "5", "personId": "d0277d31-6ffe-4399-a20f-94f2f6afa825", "amount": 5000, "date": "2024-07-16" },
+    { "id": "5", "personId": "8e214310-54b8-4624-b208-1aece699df05", "amount": 50000, "date": "2024-07-31" }
+
 ]
 
