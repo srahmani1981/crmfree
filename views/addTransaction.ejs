@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Transaction for <%= person.name %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Transaction for <%= person.name %></h1>
+
+        <form action="/add-transaction/<%= person.id %>" method="POST">
+            <label for="amount">Amount</label>
+            <input type="number" name="amount" id="amount" required>
+
+            <label for="date">Date</label>
+            <input type="date" name="date" id="date" required>
+
+            <button type="submit">Add Transaction</button>
+        </form>
+
+        <a href="/view-person/<%= person.id %>">Back to Donor</a>
+    </div>
+</body>
+</html>

@@ -58,6 +58,10 @@ app.get('/view-organization/:id', authMiddleware, organizationController.viewOrg
 app.get('/search-organizations', authMiddleware, organizationController.searchOrganizations);
 app.get('/search-organizations-results', authMiddleware, organizationController.searchOrganizations); // Route for search organizations results
 
+app.get('/add-transaction/:id', authMiddleware, personController.addTransaction);
+app.post('/add-transaction/:id', authMiddleware, personController.addTransaction);
+
+
 const PORT = process.env.PORT || 3011;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
