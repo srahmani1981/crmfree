@@ -34,43 +34,54 @@
 
     <div class="chart-container">
         <h2>Monthly Donations</h2>
-        <div class="chart" id="donationsChart"></div>
+        <div class="bar-chart" id="donationsChart"></div>
     </div>
 
     <script>
-        const labels = <%= JSON.stringify(labels) %>;
-        const data = <%= JSON.stringify(data) %>;
+        // Correct escaping for the labels and data to avoid issues
+        const labels = <%- JSON.stringify(labels) %>;
+        const data = <%- JSON.stringify(data) %>;
 
         console.log('Labels:', labels);
         console.log('Data:', data);
 
         const chartContainer = document.getElementById('donationsChart');
+        const maxValue = Math.max(...data); // Find max donation value for scaling bars
 
-        // Get the maximum value for the y-axis
-        const maxValue = Math.max(...data);
+        // Set a minimum bar height to ensure small values are still visible
+        const minBarHeight = 5; // Set a minimum pixel height for very small bars
 
-        // Create bars for each data point
-        data.forEach((value, index) => {
-            const barContainer = document.createElement('div');
-            barContainer.classList.add('bar-container');
 
-            const bar = document.createElement('div');
-            bar.classList.add('bar');
-            bar.style.height = `${(value / maxValue) * 100}%`;
+        // Clear any existing bars (if this is dynamic)
+        chartContainer.innerHTML = '';
 
-            const label = document.createElement('div');
-            label.classList.add('label');
-            label.textContent = labels[index];
+        if (labels.length > 0 && data.length > 0) {
+            data.forEach((value, index) => {
+    const barContainer = document.createElement('div');
+    barContainer.classList.add('bar-container');
 
-            const valueLabel = document.createElement('div');
-            valueLabel.classList.add('value-label');
-            valueLabel.textContent = value;
+    // Create the bar element with a minimum height
+    const bar = document.createElement('div');
+    bar.classList.add('bar');
+    const scaledHeight = (value / maxValue) * 100;
+    bar.style.height = `${Math.max(scaledHeight, minBarHeight)}px`; // Use scaled height or minimum
 
-            barContainer.appendChild(valueLabel);
-            barContainer.appendChild(bar);
-            barContainer.appendChild(label);
-            chartContainer.appendChild(barContainer);
-        });
+    bar.title = `$${value}`; // Tooltip showing the value of the donation
+
+    console.log(`Bar height for ${labels[index]}: ${Math.max(scaledHeight, minBarHeight)}px`);
+
+    const label = document.createElement('div');
+    label.classList.add('label');
+    label.textContent = labels[index]; // Month label
+
+    // Add the bar and label to the container
+    barContainer.appendChild(bar);
+    barContainer.appendChild(label);
+    chartContainer.appendChild(barContainer);
+});
+        } else {
+            console.error('No data to display');
+        }
     </script>
 </body>
 </html>

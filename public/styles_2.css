@@ -1,0 +1,186 @@
+/* General body styling */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f8f9fa; /* Lighter background */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header style */
+.header {
+    background-color: #1a1a1a; /* Dark header */
+    padding: 1rem 0;
+    text-align: center;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+}
+
+.container {
+    background: white;
+    padding: 2em;
+    border-radius: 8px;
+    width: 60%;
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: none; /* Remove shadows */
+    border: 1px solid #dee2e6; /* Subtle border */
+}
+
+/* Typography */
+h1, h2 {
+    font-size: 2rem;
+    color: #0d6efd; /* Twilio-like primary blue */
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #6c757d; /* Lighter grey text */
+}
+
+/* Button styling */
+button, a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #0d6efd;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+button:hover, a.button:hover {
+    background-color: #0056b3;
+}
+
+/* Input fields styling */
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: #f8f9fa; /* Light input background */
+}
+
+input:focus, select:focus {
+    border-color: #0d6efd;
+    background-color: white;
+}
+
+/* Center alignment */
+.center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Button group layout */
+.navbar {
+    margin: 1.5em 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem; /* Add space between buttons */
+    flex-wrap: wrap;
+}
+
+/* Modern flat button styling for the navbar */
+.navbar a {
+    background-color: #f8f9fa;
+    color: #0d6efd;
+    border: 1px solid #0d6efd;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* Footer-like section */
+.footer {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer a:hover {
+    color: #0d6efd;
+}
+
+/* Minimalist card style */
+.card {
+    padding: 1.5em;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    text-align: center;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 400px;
+}
+
+.card h2 {
+    font-size: 1.4rem;
+    color: #0d6efd;
+    margin-bottom: 1rem;
+}
+
+/* Pagination styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.pagination a {
+    color: #0d6efd;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border: 1px solid #dee2e6;
+    margin: 0 5px;
+    border-radius: 6px;
+}
+
+.pagination a.active {
+    background-color: #0d6efd;
+    color: white;
+    border: 1px solid #0d6efd;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #e9ecef;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+}

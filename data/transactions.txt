@@ -1,10 +1,99 @@
 [
-    { "id": "1", "personId": "1", "amount": 100, "date": "2024-01-01" },
-    { "id": "2", "personId": "1", "amount": 200, "date": "2024-02-01" },
-    { "id": "3", "personId": "2", "amount": 150, "date": "2024-03-01" },
-    { "id": "4", "personId": "3", "amount": 250, "date": "2024-04-01" },
-    { "id": "5", "personId": "d0277d31-6ffe-4399-a20f-94f2f6afa825", "amount": 5000, "date": "2024-07-16" },
-    { "id": "5", "personId": "8e214310-54b8-4624-b208-1aece699df05", "amount": 50000, "date": "2024-07-31" }
-
+  {
+    "id": "1",
+    "personId": "1",
+    "amount": 100,
+    "date": "2024-01-01"
+  },
+  {
+    "id": "2",
+    "personId": "1",
+    "amount": 200,
+    "date": "2024-02-01"
+  },
+  {
+    "id": "3",
+    "personId": "2",
+    "amount": 150,
+    "date": "2024-03-01"
+  },
+  {
+    "id": "4",
+    "personId": "3",
+    "amount": 250,
+    "date": "2024-04-01"
+  },
+  {
+    "id": "5",
+    "personId": "d0277d31-6ffe-4399-a20f-94f2f6afa825",
+    "amount": 5000,
+    "date": "2024-07-16"
+  },
+  {
+    "id": "6",
+    "personId": "8e214310-54b8-4624-b208-1aece699df05",
+    "amount": 50000,
+    "date": "2024-07-31"
+  },
+  {
+    "id": "7",
+    "personId": "d0277d31-6ffe-4399-a20f-94f2f6afa825",
+    "amount": 59852,
+    "date": "2024-07-31"
+  },
+  {
+    "id": "8",
+    "personId": "10",
+    "amount": 59,
+    "date": "2024-08-20"
+  },
+  {
+    "id": "a8d55431-6112-49c6-8f7b-b2cf050acf51",
+    "personId": "10",
+    "amount": "788",
+    "date": "2024-09-10",
+    "addedBy": "ABD-Staff"
+  },
+  {
+    "id": "7a0eda61-d762-4f3f-bae7-9035cb2e2c69",
+    "personId": "8e214310-54b8-4624-b208-1aece699df05",
+    "amount": "18865",
+    "date": "2024-09-04",
+    "addedBy": "ABD-Staff"
+  },
+  {
+    "id": "b2a91135-fbe9-47df-ad15-a538e105c7a7",
+    "personId": "1",
+    "amount": "9999",
+    "date": "2024-08-01",
+    "addedBy": "ABD-Staff"
+  },
+  {
+    "id": "58d77016-5cc0-4d90-ae12-3cc73864fda9",
+    "personId": "9a616cd2-991d-4226-88fc-81ef534ccea9",
+    "amount": "3999",
+    "date": "2024-06-10",
+    "addedBy": "ABD-Staff"
+  },
+  {
+    "id": "7bfd74c5-00e2-48e8-a6f3-e29b5e9ed519",
+    "personId": "10",
+    "amount": "190000",
+    "date": "2024-07-13",
+    "addedBy": "ABD-Staff"
+  },
+  {
+    "id": "5ce9edbb-4a82-4247-b45d-aeb6ffd65a02",
+    "personId": "2",
+    "amount": "158500",
+    "date": "2024-06-07",
+    "addedBy": "ABD-Staff"
+  },
+  {
+    "id": "f96b5bf6-be6d-4c4f-94e9-68b713d41654",
+    "personId": "7",
+    "amount": "2000000",
+    "date": "2024-09-10",
+    "addedBy": "ABD-Staff"
+  }
 ]
-
